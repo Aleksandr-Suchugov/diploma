@@ -1,6 +1,12 @@
 {
     "private": true,
     "type": "module",
+    "authors": [
+        {
+            "name": "aleksandr-suchugov",
+            "email": "alex.coup@yandex.ru"
+        }
+    ],
     "scripts": {
         "dev": "vite",
         "build": "vite build"

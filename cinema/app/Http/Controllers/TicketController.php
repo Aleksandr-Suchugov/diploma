@@ -3,63 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
-use Illuminate\Http\Request;
+use App\Http\Resources\TicketResource;
+use App\Http\Requests\TicketStoreRequest;
 
 class TicketController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function store(TicketStoreRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $tickets = Ticket::create($data);
+
+        return new TicketResource($tickets);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Показать все сессии относящиеся к конкретному UUID
      */
-    public function create()
+    public function showTicketsBySession($uuid)
     {
-        //
+        $data = Ticket::where('uuid', $uuid)->get()->toArray();
+        return $data;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Показать все билеты относящиеся к конкретному session_id
      */
-    public function store(Request $request)
+    public function showSeatsBySession($session_id, $date)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Ticket $ticket)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Ticket $ticket)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Ticket $ticket)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Ticket $ticket)
-    {
-        //
+        $data = Ticket::where('date', $date)->where('session_id', $session_id)->get()->toArray();
+        return $data;
     }
 }

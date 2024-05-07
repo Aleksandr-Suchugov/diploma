@@ -2,57 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\HallResource;
 use App\Models\Hall;
-use Illuminate\Http\Request;
+use App\Http\Requests\HallStoreRequest;
+use App\Http\Requests\HallUpdateRequest;
 
-class HallController extends Controller
+class HallsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return HallResource::collection(
+            Hall::orderBy('id', 'desc')->paginate(5)
+        );
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(HallStoreRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $hall = Hall::create($data);
+
+        return new HallResource($hall);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Hall $hall)
+    public function show($hall_id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Hall $hall)
-    {
-        //
+        $data = Hall::where('id', $hall_id)->get()->toArray();
+        return $data;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Hall $hall)
+    public function update(HallUpdateRequest $request, Hall $hall)
     {
-        //
+        $data = $request->validated();
+
+        $hall->update($data);
+
+        return new HallResource($hall);
     }
 
     /**
@@ -60,6 +57,7 @@ class HallController extends Controller
      */
     public function destroy(Hall $hall)
     {
-        //
+        $hall->delete();
+        return response('', 204);
     }
 }

@@ -7,7 +7,7 @@ use App\Models\Hall;
 use App\Http\Requests\HallStoreRequest;
 use App\Http\Requests\HallUpdateRequest;
 
-class HallsController extends Controller
+class HallController extends Controller
 {
     /**
      * Display a listing of the resource.

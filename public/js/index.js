@@ -62752,7 +62752,7 @@ var setGlobalDevModeChecks = (devModeChecks) => {
 };
 
 // src/utils.ts
-var NOT_FOUND = "NOT_FOUND";
+var NOT_FOUND = /* @__PURE__ */ Symbol("NOT_FOUND");
 function assertIsFunction(func, errorMessage = `expected a function, instead received ${typeof func}`) {
   if (typeof func !== "function") {
     throw new TypeError(errorMessage);
@@ -63157,7 +63157,7 @@ function lruMemoize(func, equalityCheckOrOptions) {
   } = providedOptions;
   const comparator = createCacheKeyComparator(equalityCheck);
   let resultsCount = 0;
-  const cache = maxSize === 1 ? createSingletonCache(comparator) : createLruCache(maxSize, comparator);
+  const cache = maxSize <= 1 ? createSingletonCache(comparator) : createLruCache(maxSize, comparator);
   function memoized() {
     let value = cache.get(arguments);
     if (value === NOT_FOUND) {
@@ -63275,17 +63275,17 @@ function weakMapMemoize(func, options = {}) {
     } else {
       result = func.apply(null, arguments);
       resultsCount++;
+      if (resultEqualityCheck) {
+        const lastResultValue = lastResult?.deref?.() ?? lastResult;
+        if (lastResultValue != null && resultEqualityCheck(lastResultValue, result)) {
+          result = lastResultValue;
+          resultsCount !== 0 && resultsCount--;
+        }
+        const needsWeakRef = typeof result === "object" && result !== null || typeof result === "function";
+        lastResult = needsWeakRef ? new Ref(result) : result;
+      }
     }
     terminatedNode.s = TERMINATED;
-    if (resultEqualityCheck) {
-      const lastResultValue = lastResult?.deref?.() ?? lastResult;
-      if (lastResultValue != null && resultEqualityCheck(lastResultValue, result)) {
-        result = lastResultValue;
-        resultsCount !== 0 && resultsCount--;
-      }
-      const needsWeakRef = typeof result === "object" && result !== null || typeof result === "function";
-      lastResult = needsWeakRef ? new Ref(result) : result;
-    }
     terminatedNode.v = result;
     return result;
   }

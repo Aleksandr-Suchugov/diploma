@@ -36,12 +36,40 @@
 
 ## Используемые NPM пакеты
 
-
+    @babel/preset-react@7.24.6,
+    @popperjs/core@2.11.8,
+    axios@1.1.2,
+    laravel-mix@6.0.49,
+    laravel-vite-plugin@0.7.2,
+    lodash@4.17.21,
+    postcss@8.4.38,
+    react@18.3.1,
+    react-dom@18.3.1,
+    resolve-url-loader@5.0.0,
+    sass@1.77.2,
+    sass-loader@14.2.1,
+    vite@4.0.0;
+    @reduxjs/toolkit": "^2.2.5,
+    classnames@2.5.1,
+    qrcode@1.5.3,
+    react-redux@9.1.2,
+    react-router-dom@6.23.1.
 
 
 ## Версии окружения
 
-
+    php 8.1,
+    guzzlehttp/guzzle 7.2",
+    laravel/framework 10.0",
+    laravel/sanctum 3.2",
+    laravel/tinker 2.8;
+    fakerphp/faker 1.9.1,
+    laravel/pint 1.0,
+    laravel/sail 1.18,
+    mockery/mockery 1.4.4,
+    nunomaduro/collision 7.0,
+    phpunit/phpunit 10.0,
+    spatie/laravel-ignition 2.0.
 
 
 ## Инструкция по запуску приложения

@@ -37,7 +37,6 @@
     "directories": {
         "test": "tests"
     },
-    "author": "",
     "license": "ISC",
     "dependencies": {
         "@reduxjs/toolkit": "^2.2.5",

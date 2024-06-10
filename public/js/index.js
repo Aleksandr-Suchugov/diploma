@@ -5110,7 +5110,7 @@ function Login() {
               children: ["E-mail", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                 className: "login__input",
                 type: "mail",
-                placeholder: "admin@gmail.com",
+                placeholder: "admin@mail.com",
                 name: "mail",
                 value: loginForm.mail,
                 onChange: handleChange,

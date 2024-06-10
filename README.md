@@ -97,5 +97,5 @@
  
  2.3 Проверяем, что Vite запустился корректно `npm run dev` 
  
-*3. Доступ в панель администрирования URL: http://127.0.0.1:8000/admin/login E-mail: admin@gmail.com Пароль: admin
+*3. Доступ в панель администрирования URL: http://127.0.0.1:8000/admin/login E-mail: admin@mail.com Пароль: admin
 

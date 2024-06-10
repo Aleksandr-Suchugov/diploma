@@ -36,54 +36,12 @@
 
 ## Используемые NPM пакеты
 
-@headlessui/react@2.0.4
 
-@heroicons/react@2.1.3
-
-@tailwindcss/forms@0.5.7
-
-@types/react-dom@18.3.0
-
-@types/react@18.3.3
-
-@vitejs/plugin-react@4.3.0
-
-axios@1.7.2
-
-eslint-plugin-react-hooks@4.6.2
-
-eslint-plugin-react-refresh@0.4.7
-
-eslint-plugin-react@7.34.1
-
-eslint@9.3.0
-
-postcss@8.4.38
-
-qrcode@1.5.3
-
-react-dom@18.3.1
-
-react-qr-code@2.0.13
-
-react-router-dom@6.23.1
-
-react@18.3.1
-
-tailwindcss@3.4.3
-
-uuid@9.0.1
-
-vite@5.2.11
 
 
 ## Версии окружения
 
-PHP 8.2.17 
 
-Laravel Framework 10.48.10
-
-Node.js v18.17.1
 
 
 ## Инструкция по запуску приложения
@@ -110,3 +68,5 @@ Node.js v18.17.1
  
  2.3 Проверяем, что Vite запустился корректно `npm run dev` 
  
+*3. Доступ в панель администрирования URL: http://127.0.0.1:8000/admin/login E-mail: admin@gmail.com Пароль: admin
+
